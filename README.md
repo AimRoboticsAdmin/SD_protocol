@@ -295,7 +295,7 @@ python feed.py 300
 ```
 
 # Notes
-- Ensure that the `SERIAL_PORT` in `common.py` is correctly set to match the connected USB port of your Arduino.
+- Ensure that the `SERIAL_PORT` in `common.py` is correctly set to match the connected USB port of the Tool.
 - The scripts expect the SD dispensing unit to respond with data. Ensure the unit is properly connected and configured.
 - The tbps speed setting is crucial for the manual control commands (up and down). Make sure to set it appropriately before using these commands.
 ```
