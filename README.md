@@ -229,7 +229,7 @@ python ping.py
 
 **Usage**: Provide the toolbar speed as a command line argument.
 
-**Value Limits**: Values between 1 - 400.
+**Value Limits**: Values between 1 - 100.
 
 ```bash
 python tbps.py <speed>
