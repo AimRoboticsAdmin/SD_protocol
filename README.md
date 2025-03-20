@@ -66,7 +66,7 @@ python stop.py
 
 Usage: Provide the syringe size as a command line argument.
 
-Value Limits: 3700000 for 30cc or 7400000 for 55cc syringes.
+Value Limits: 4350000 for 30cc or 8000000 for 55cc syringes.
 
 ```bash
 python size.py <size>
@@ -75,7 +75,7 @@ python size.py <size>
 **Example:** 
 
 ```bash
-python size.py 3700000
+python size.py 4350000
 ```
 
 ##  Set Dispensing Speed
