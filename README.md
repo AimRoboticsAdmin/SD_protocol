@@ -84,7 +84,7 @@ python size.py 4350000
 
 **Usage:** Provide the dispensing speed as a command line argument.
 
-**Value Limits:** Normal values are between 0 - 100, but can be more.
+**Value Limits:** Values are between 0 - 100.
 
 ```bash
 python speed.py <speed>
