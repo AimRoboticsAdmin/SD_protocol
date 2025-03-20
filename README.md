@@ -2,12 +2,12 @@
 
 This repository contains individual Python scripts to control the SD dispensing unit using serial commands. Each script corresponds to a specific command that can be sent to the SD dispensing unit via a serial port.
 
-## Prerequisites
+# Prerequisites
 
 - Python 3.x
 - `pyserial` library
 
-## Installation
+# Installation
 
 1. **Clone the repository:**
    ```bash
@@ -31,16 +31,26 @@ Each script can be executed independently from the command line to send specific
 ## Common Functionality
 All scripts use the `send_command` function defined in `common.py` to handle serial communication.
 
-## Commands
+# Commands only used for manual toolbar changes in UI
 
-### Start Moving Up
-**Script:** `up.py`
+## Set Toolbar Speed
+**Script**: tbps.py
 
-**Important:** The `tbps` speed must be set prior to using the `up` command to ensure proper manual control.
+**Usage**: Provide the toolbar speed as a command line argument.
+
+**Value Limits**: Values between 1 - 100.
 
 ```bash
-python up.py
+python tbps.py <speed>
 ```
+
+**Example**:
+
+```bash
+python tbps.py 100
+```
+
+**Important**: The tbps speed must be set before using the up and down commands as they rely on this speed setting for manual control.
 
 ## Start Moving Down
 
@@ -51,6 +61,14 @@ python up.py
 ```bash
 python down.py
 ```
+## Start Moving Up
+**Script:** `up.py`
+
+**Important:** The `tbps` speed must be set prior to using the `up` command to ensure proper manual control.
+
+```bash
+python up.py
+```
 
 ## Stop Movement
 **Script:** `stop.py`
@@ -59,6 +77,7 @@ python down.py
 python stop.py
 ```
 
+# Commands used for dispensing
 
 ##  Set Syringe Size
 
@@ -76,6 +95,23 @@ python size.py <size>
 
 ```bash
 python size.py 4350000
+```
+
+## Set Prefeed Steps
+**Script:** feed.py
+
+**Usage:** Provide the number of prefeed steps as a command line argument.
+
+**Value Limits:** Values between 1 - 500.
+
+```bash
+python feed.py <steps>
+```
+
+**Example:**
+
+```bash
+python feed.py 300
 ```
 
 ##  Set Dispensing Speed
@@ -96,6 +132,14 @@ python speed.py <speed>
 python speed.py 50
 ```
 
+##  Stop Dispensing
+
+**Script:**  speed.py
+
+```bash
+python speed.py 0
+```
+
 ##  Set Retraction Steps
 
 **Script:**  retr.py
@@ -114,185 +158,32 @@ python retr.py <steps>
 python retr.py 250
 ```
 
-## Set Prefeed Steps
-**Script:** feed.py
-
-**Usage:** Provide the number of prefeed steps as a command line argument.
-
-**Value Limits:** Values between 1 - 500.
-
-```bash
-python feed.py <steps>
-```
-
-**Example:**
-
-```bash
-python feed.py 300
-```
-
-
-# Move Home
+## Move Home
 **Script**: home.py
 
 ```bash
 python home.py
 ```
 
-# Check Connection
+## Check Connection
 **Script**: ping.py
 
 ```bash
 python ping.py
 ```
 
-# Set Toolbar Speed
-**Script**: tbps.py
-
-**Usage**: Provide the toolbar speed as a command line argument.
-
-**Value Limits**: Values between 1 - 100.
-
-```bash
-python tbps.py <speed>
-```
-
-**Example**:
-
-```bash
-python tbps.py 100
-```
-
 **Important**: The tbps speed must be set before using the up and down commands as they rely on this speed setting for manual control.
 
-# Start Priming
+## Start Priming
 
 **Script**: prime.py
 
-```bash
-python prime.py
-```
-
-# Example Commands
-
-**Start moving up**:
-
-```bash
-python up.py
-```
-
-**Set syringe size to 3700000**:
-
-```bash
-python size.py 3700000
-```
-
-**Set dispensing speed to 50**:
-
-```bash
-python speed.py 50
-```
-
-**Stop movement**:
-
-```bash
-python stop.py
-```
-
-**Set toolbar speed to 100**:
-
-```bash
-python tbps.py 100
-```
-
-**Start priming**:
-
-```bash
-python prime.py
-```
-# Move Home
-**Script**: home.py
-
-```bash
-python home.py
-```
-
-# Check Connection
-**Script**: ping.py
-
-```bash
-python ping.py
-```
-
-# Set Toolbar Speed
-**Script**: tbps.py
-
-**Usage**: Provide the toolbar speed as a command line argument.
-
-**Value Limits**: Values between 1 - 100.
-
-```bash
-python tbps.py <speed>
-```
-
-**Example**:
-
-```bash
-python tbps.py 100
-```
-
-**Important**: The tbps speed must be set before using the up and down commands as they rely on this speed setting for manual control.
-
-# Start Priming
-**Script**: prime.py
+**Usage:** Piston will stop when he feels resistance of material
 
 ```bash
 python prime.py
 ```
 
-# Example Commands
-
-**Start moving up**:
-
-```bash
-python up.py
-```
-
-**Set syringe size to 3700000**:
-
-```bash
-python size.py 3700000
-```
-
-**Set dispensing speed to 50**:
-
-```bash
-python speed.py 50
-```
-
-**Stop movement**:
-
-```bash
-python stop.py
-```
-
-**Set toolbar speed to 100**:
-
-```bash
-python tbps.py 100
-```
-
-**Start priming**:
-
-```bash
-python prime.py
-```
-
-**Set prefeed steps to 300**:
-
-```bash
-python feed.py 300
-```
 
 # Notes
 - Ensure that the `SERIAL_PORT` in `common.py` is correctly set to match the connected USB port of the Tool.
